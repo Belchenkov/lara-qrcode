@@ -16,11 +16,12 @@ class CreateQRCodesTable extends Migration
         Schema::create('qr_codes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
-            $table->string('website')->nullable();
-            $table->string('company_name');
-            $table->string('product_name');
+            $table->string('website')->nullable()->index();
+            $table->string('company_name')->index();
+            $table->string('product_name')->index();
             $table->string('product_url')->nullable();
             $table->string('callback_url');
+            $table->string('qrcode_path')->nullable();
             $table->float('amount', 10, 4);
             $table->tinyInteger('status');
             $table->timestamps();
